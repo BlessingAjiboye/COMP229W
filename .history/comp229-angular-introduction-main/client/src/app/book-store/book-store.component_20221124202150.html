@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class = "row">
+    <div class="col-3 p-2">
+    <div class="col-3 bg-info p-2 text-white">
+      <button class = "btn-btn-block btn-outline-primary"(click)="changeAuthor()">
+        All Authors
+        </button>
+        <button
+        *ngFor = "let author of authors" class="btn btn-outline-primary btn-block">
+        [class.active] ="author ==selectedAuthor"(click) = "changeAuthor(author)"
+        {{author}}
+
+          </button>
+      </div>
+      <div class="col-9 p-2">
+        <div *ngFor = "let book of books" class="card m-1 p-1 bg-light">
+          <h4>
+        {{book.name}}
+
+          <span class="badge badge-pill badge-primary float-right" style="color:blue;">
+            {{book.price | currency:"CAD":"symbol":'2.2-2'}}
+          </span>
+        </h4>
+        <div class="card-text bg-white p-1">
+          {{book.description}}
+          </div>
+          </div>
+        </div>
+    </div>
+  </div>
